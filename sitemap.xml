@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://weikuiwang.com/categories/index.html</loc>
+    
+    <lastmod>2016-03-28T07:40:16.839Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://weikuiwang.com/tags/index.html</loc>
+    
+    <lastmod>2016-03-28T07:39:26.631Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://weikuiwang.com/404.html</loc>
     
     <lastmod>2016-03-28T02:48:57.048Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>http://weikuiwang.com/2016/03/24/my-first-blog/</loc>
     
     <lastmod>2016-03-24T08:57:42.336Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://weikuiwang.com/tags/index.html</loc>
-    
-    <lastmod>2016-03-24T08:40:17.906Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://weikuiwang.com/categories/index.html</loc>
-    
-    <lastmod>2016-03-24T08:39:52.124Z</lastmod>
     
   </url>
   
