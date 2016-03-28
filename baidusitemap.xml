@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>http://weikuiwang.com/2016/03/28/How-do-I-buile-this-blog/</loc>
+    <lastmod>2016-03-28T09:06:33.865Z</lastmod>
+    <data>
+        <display>
+        <title>How do I buile this blog</title>
+        <pubTime>2016-03-28T08:53:36.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>NexT</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://weikuiwang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -16,48 +38,6 @@
         
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://weikuiwang.com/2016/03/24/my-second-page/</loc>
-    <lastmod>2016-03-24T09:28:56.271Z</lastmod>
-    <data>
-        <display>
-        <title>my second page</title>
-        <pubTime>2016-03-24T07:53:25.000Z</pubTime>
-        
-        <tag>test</tag>
-         
-         
-           
-             
-              <breadCrumb title="Thinking" url="http://weikuiwang.com/categories/Thinking/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://weikuiwang.com/2016/03/24/my-first-blog/</loc>
-    <lastmod>2016-03-24T08:57:42.336Z</lastmod>
-    <data>
-        <display>
-        <title>my first blog</title>
-        <pubTime>2016-03-24T08:52:14.000Z</pubTime>
-        
-        <tag>test</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="Thinking" url="http://weikuiwang.com/categories/Thinking/"/>
-          
         </display>
     </data>
     </url>
