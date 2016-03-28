@@ -1,0 +1,2 @@
+Sitemap: http://www.wangweikui.com/sitemap.xml
+Sitemap: http://www.wantweikui.com/baidusitemap.xml
