@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://weikuiwang.com/2016/03/28/How-do-I-buile-this-blog/</loc>
+    <lastmod>2016-04-01T09:47:10.455Z</lastmod>
+    <data>
+        <display>
+        <title>How do I buile this blog</title>
+        <pubTime>2016-03-28T08:53:36.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>NexT</tag>
+         
+        <tag>GitHub</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://weikuiwang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://weikuiwang.com/2016/04/01/How%20to%20count%20page%20views%20in%20my%20blog%20/</loc>
+    <lastmod>2016-04-01T09:44:56.530Z</lastmod>
+    <data>
+        <display>
+        <title>How to count page views in my blog</title>
+        <pubTime>2016-04-01T05:53:36.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>NexT</tag>
+         
+         
+           
+             
+              <breadCrumb title="Programming" url="http://weikuiwang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://weikuiwang.com/2016/03/31/Get%20it%20or%20Got%20it/</loc>
     <lastmod>2016-04-01T03:35:36.594Z</lastmod>
     <data>
@@ -59,28 +105,6 @@
            
              
               <breadCrumb title="Living" url="http://weikuiwang.com/categories/Living/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://weikuiwang.com/2016/03/28/How-do-I-buile-this-blog/</loc>
-    <lastmod>2016-03-28T09:06:33.865Z</lastmod>
-    <data>
-        <display>
-        <title>How do I buile this blog</title>
-        <pubTime>2016-03-28T08:53:36.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>NexT</tag>
-         
-         
-           
-             
-              <breadCrumb title="Programming" url="http://weikuiwang.com/categories/Programming/"/>
           
         </display>
     </data>
