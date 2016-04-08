@@ -64,7 +64,7 @@
 <meta property="og:site_name" content="Kui's blog">
 <meta property="og:description" content="在单篇博文中添加音乐">
 <meta property="og:image" content="http://7xsedi.com1.z0.glb.clouddn.com/wangweikui_music.jpg">
-<meta property="og:updated_time" content="2016-04-08T02:12:22.966Z">
+<meta property="og:updated_time" content="2016-04-08T03:35:28.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to embed music in Hexo post">
 <meta name="twitter:description" content="在单篇博文中添加音乐">
@@ -308,7 +308,7 @@
       
 
       
-        <p><img src="http://7xsedi.com1.z0.glb.clouddn.com/wangweikui_music.jpg" alt="wangweikui_music"><br>在单篇博文中添加音乐<br><a id="more"></a><br>目前为止我在Hexo官网插件中发现了三款用于在博客文章中添加音乐的插件，但使用方法看完之后，发现都有不满意的地方，要么是音乐来源问题，要不是使用方法、界面效果等。最后还是觉得在官网之外找下资源，Google一下果然找到一款安装使用简介的插件：hexo-tag-netease-music。快速测试使用效果还是可以的，而且音乐来源于网易。可见我上一篇的<a href="http://wangweikui.com/2016/04/06/Music%20Time%20-%2020160406/" target="_blank" rel="external">推荐音乐</a>的文章。<br>搬过来的使用方法：<br><strong>Installation</strong><br>To install, run the following command in the root directory of hexo:</p>
+        <p><img src="http://7xsedi.com1.z0.glb.clouddn.com/wangweikui_music.jpg" alt="wangweikui_music"><br>在单篇博文中添加音乐<br><a id="more"></a><br>目前为止我在Hexo官网插件中发现了三款用于在博客文章中添加音乐的插件，但使用方法看完之后，发现都有不满意的地方，要么是音乐来源问题，要不是使用方法、界面效果等。最后还是觉得在官网之外找下资源，Google一下果然找到一款安装使用简洁的插件：hexo-tag-netease-music。快速测试使用效果还是可以的，而且音乐来源于网易。可见我上一篇的<a href="http://wangweikui.com/2016/04/06/Music%20Time%20-%2020160406/" target="_blank" rel="external"><strong>推荐音乐</strong></a>的文章。<br>搬过来的使用方法：<br><strong>Installation</strong><br>To install, run the following command in the root directory of hexo:</p>
 <blockquote>
 <p>npm install hexo-tag-netease-music –save  </p>
 </blockquote>
@@ -316,7 +316,10 @@
 <blockquote>
 <p>plugins: hexo-tag-netease-music  </p>
 </blockquote>
-<p><strong>Size</strong><br>Size of iframe widget:<br>width range: [260, 510]<br>height range：[190, 500]<br>Size of flash widget:<br>small: {width:278, height: 32}<br>medium: {width:320, height: 66}<br><strong>Usage</strong><br><div class="netease-music-container"><div class="netease-music-inner"><embed src="http://music.163.com/style/swf/widget.swf?sid=$musicID&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all"></div></div><br>Example of flash widget:<br><div class="netease-music-container"><div class="netease-music-inner"><embed src="http://music.163.com/style/swf/widget.swf?sid=251613&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all"></div></div><br>Example of iframe widget:<br><div class="netease-music-container"><div class="netease-music-inner"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="86" src="http://music.163.com/outchain/player?type=2&id=251613&auto=0&height=66"></iframe></div></div><br>我试了下还是就使用iframe就行了，flash还要考虑浏览器插件和版本的问题，而且外观不简洁。但我发现使用iframe时在播放器的下方还有200px左右高度的空白，而且设置的Iframe宽高度都没生效，暂时还未在css或js文件中修改成功，但初步效果是已经达到了。之后有小伙伴使用更好的官方或非官方音乐插件时还请推荐一下。</p>
+<p><strong>Size</strong><br>Size of iframe widget:<br>width range: [260, 510]<br>height range：[190, 500]<br>Size of flash widget:<br>small: {width:278, height: 32}<br>medium: {width:320, height: 66}<br><strong>Usage</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% nemusic $musicID $widget(flash|iframe) $auto(<span class="number">0</span>|<span class="number">1</span>) ([JSONsize]|(small|medium)) %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Example of flash widget:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% nemusic <span class="number">251613</span> flash <span class="number">0</span> <span class="string">'medium'</span> %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Display:<br><div class="netease-music-container"><div class="netease-music-inner"><embed src="http://music.163.com/style/swf/widget.swf?sid=251613&type=2&auto=0&width=320&height=66" width="340" height="86" allownetworking="all"></div></div><br>Example of iframe widget:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% nemusic <span class="number">251613</span> iframe <span class="number">0</span> <span class="string">'&#123;"width":320, "height":66&#125;'</span> %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Display:<br><div class="netease-music-container"><div class="netease-music-inner"><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="320" height="66" src="http://music.163.com/outchain/player?type=2&id=251613&auto=0&height=66"></iframe></div></div><br>我试了下还是就使用iframe就行了，flash还要考虑浏览器插件和版本的问题，而且外观不简洁。但我发现使用iframe时在播放器的下方还有200px左右高度的空白，而且设置的Iframe宽高度都没生效，暂时还未在css或js文件中修改成功，但初步效果是已经达到了。之后有小伙伴使用更好的官方或非官方音乐插件时还请推荐一下。</p>
 
       
     </div>
