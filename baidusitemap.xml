@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://weikuiwang.com/2016/03/25/hello-world/</loc>
+    <lastmod>2016-04-21T03:26:20.289Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-03-24T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Programming" url="http://weikuiwang.com/categories/Programming/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://weikuiwang.com/2016/04/18/Music%20Time%20-%2020160418/</loc>
+    <lastmod>2016-04-18T08:53:26.252Z</lastmod>
+    <data>
+        <display>
+        <title>Music Time - 20160418</title>
+        <pubTime>2016-04-18T05:53:36.000Z</pubTime>
+        
+        <tag>诗</tag>
+         
+        <tag>Music</tag>
+         
+         
+           
+             
+              <breadCrumb title="Living" url="http://weikuiwang.com/categories/Living/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://weikuiwang.com/2016/04/10/%E7%8E%A9%E8%BD%AC%E5%A4%9A%E8%AF%B4%E8%87%AA%E5%AE%9A%E4%B9%89CSS/</loc>
     <lastmod>2016-04-18T06:44:26.921Z</lastmod>
     <data>
@@ -230,6 +270,28 @@
 
     
   <url>
+    <loc>http://weikuiwang.com/2016/03/29/%E6%B8%B8%E6%B3%B0%E6%99%A4%E5%A3%AB%E5%B0%8F%E9%95%87%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <lastmod>2016-03-29T07:19:01.170Z</lastmod>
+    <data>
+        <display>
+        <title>游泰晤士小镇</title>
+        <pubTime>2016-03-29T05:53:36.000Z</pubTime>
+        
+        <tag>游记</tag>
+         
+        <tag>上海</tag>
+         
+         
+           
+             
+              <breadCrumb title="Living" url="http://weikuiwang.com/categories/Living/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://weikuiwang.com/2016/03/29/%E6%B8%B8%E6%B3%B0%E6%99%A4%E5%A3%AB%E5%B0%8F%E9%95%87/</loc>
     <lastmod>2016-03-29T07:19:01.170Z</lastmod>
     <data>
@@ -253,19 +315,4 @@
     
     
     
-    
-  <url>
-    <loc>http://weikuiwang.com/2016/04/21/hello-world/</loc>
-    <lastmod>2016-03-24T13:31:35.350Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-04-21T03:03:47.634Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
 </urlset>
