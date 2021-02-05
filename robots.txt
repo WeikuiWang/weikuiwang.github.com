@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /fonts/
+Disallow: /vendors/
+
+Sitemap: http://weikuiwang.github.io/sitemap.xml
+Sitemap: http://weikuiwang.github.io/baidusitemap.xml

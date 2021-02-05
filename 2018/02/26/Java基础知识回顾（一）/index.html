@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"weikuiwang.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.2.1","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}};
+  </script>
+<meta name="description" content="Java简介，Java基本数据类型、标识符、关键字、注释、运算符、变量、数组等基础内容回顾。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础知识回顾（一）">
+<meta property="og:url" content="http://weikuiwang.github.io/2018/02/26/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="Kui&#39;s blog">
+<meta property="og:description" content="Java简介，Java基本数据类型、标识符、关键字、注释、运算符、变量、数组等基础内容回顾。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-02-26T05:53:36.000Z">
+<meta property="article:modified_time" content="2018-05-16T08:21:40.000Z">
+<meta property="article:author" content="Weikui Wang">
+<meta property="article:tag" content="JAVA">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://weikuiwang.github.io/2018/02/26/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<title>Java基础知识回顾（一） | Kui's blog</title>
+  
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Kui's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="http://weikuiwang.github.io/resume/build/index.html" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Java%E8%AF%AD%E8%A8%80%E4%B8%BB%E8%A6%81%E7%89%B9%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">一、Java语言主要特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Java%E5%92%8CC%E8%AF%AD%E8%A8%80%EF%BC%8CC-%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">2.</span> <span class="nav-text">二、Java和C语言，C++语言的差异</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">三、面向对象的理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Java%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">四、Java的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">5.</span> <span class="nav-text">五、标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81Java%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">6.</span> <span class="nav-text">六、Java关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81Java%E6%B3%A8%E9%87%8A"><span class="nav-number">7.</span> <span class="nav-text">七、Java注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81Java%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">8.</span> <span class="nav-text">八、Java运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%EF%BC%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F%EF%BC%8C%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F"><span class="nav-number">9.</span> <span class="nav-text">九、局部变量，实例变量，静态变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%95%B0%E7%BB%84"><span class="nav-number">10.</span> <span class="nav-text">十、数组</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Weikui Wang"
+      src="/uploads/2.jpg">
+  <p class="site-author-name" itemprop="name">Weikui Wang</p>
+  <div class="site-description" itemprop="description">Living  Programming  Thinking</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button site-overview-item animated"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/WeikuiWang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;WeikuiWang" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/weikui-wang-b17508116" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;weikui-wang-b17508116" rel="noopener" target="_blank">LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://sighttp.qq.com/authd?IDKEY=c50bd31512d9d958052566b1fc8be81fc40e367680043498" title="QQ → http:&#x2F;&#x2F;sighttp.qq.com&#x2F;authd?IDKEY&#x3D;c50bd31512d9d958052566b1fc8be81fc40e367680043498" rel="noopener" target="_blank">QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:weikuiwang@outlook.com" title="E-Mail → mailto:weikuiwang@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/weikuiwang" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://weikuiwang.github.io/2018/02/26/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE%EF%BC%88%E4%B8%80%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/2.jpg">
+      <meta itemprop="name" content="Weikui Wang">
+      <meta itemprop="description" content="Living  Programming  Thinking">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kui's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java基础知识回顾（一）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-02-26 13:53:36" itemprop="dateCreated datePublished" datetime="2018-02-26T13:53:36+08:00">2018-02-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2018-05-16 16:21:40" itemprop="dateModified" datetime="2018-05-16T16:21:40+08:00">2018-05-16</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Java简介，Java基本数据类型、标识符、关键字、注释、运算符、变量、数组等基础内容回顾。</p>
+<a id="more"></a>
+<p>Java编程语言的风格十分接近C语音、C++语音。Java是一个纯粹的面向对象的程序设计语言，它继承了C++语言面向对象技术的核心。也舍弃了C语言中容易引起错误的指针(指针以引用取代)、运算符重载、多重继承等特性，增加了垃圾回收器功能用于回收不再被引用的对象锁占据的内存空间，让程序员不用再为内存管理而担忧。</p>
+<h2 id="一、Java语言主要特性"><a href="#一、Java语言主要特性" class="headerlink" title="一、Java语言主要特性"></a>一、Java语言主要特性</h2><ol>
+<li>Java语言是强制面向对象的<br>Java语言提供类、接口和继承等原语法，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制(使用implements)。Java语言全面支持动态绑定，而C++语言只对虚函数使用动态绑定。</li>
+<li>Java语言是分布式的<br>Java语言支持Internet应用的开发，在基本的Java应用编程接口中有一个网络应用编程接口(java net)，它提供了用于网络应用编程的类库，包括URL、URLConnection、Socket、ServerSocket等。Java的RMI(远程方法激活)机制也是开发分布式应用的重要手段。</li>
+<li>Java语言是健壮的<br>Java的强类型机制、异常处理、垃圾自动收集等是Java程序健壮性的重要保证，对指针的丢弃是Java的明智选择。Java的安全检查机制使得Java更具健壮性。</li>
+<li>Java语言是安全的</li>
+<li>Java语言是体系结构中立的</li>
+<li>Java语言是可移植的</li>
+<li>Java语言是解释型的</li>
+<li>Java是性能较高的</li>
+<li>Java语言是原生支持多线程的</li>
+<li>Java语言是动态的</li>
+<li>Java应用具有健壮性和可靠性</li>
+</ol>
+<h2 id="二、Java和C语言，C-语言的差异"><a href="#二、Java和C语言，C-语言的差异" class="headerlink" title="二、Java和C语言，C++语言的差异"></a>二、Java和C语言，C++语言的差异</h2><ul>
+<li><p>Java中对内存的分配是动态的</p>
+</li>
+<li><p>Java不在所有类之外定义全局变量，而是在某个类中定义一种公用静态的变量来完成全局变量的功能。</p>
+</li>
+<li><p>Java不用goto语句，而是用try-catch-finall异常处理语句来代替goto语句处理出错的功能。</p>
+</li>
+<li><p>Java不支持头文件，而C语言和C++都用头文件来声明类的原型、全局变量、库函数等，这种采用头文件的结构使得系统的运行维护相当繁杂。</p>
+</li>
+<li><p>Java不支持宏定义。Java只能使用关键字final来定义常量。</p>
+</li>
+<li><p>Java对每种数据类型都分配固定长度。比如，在Java中int类型总是32位的，而在C语言和C++语言中，对于不同的平台同一个数据类型分配不同的字节中，同样是int类型，在PC机中为2个字节即16位，而在VAX-11中则为32    位。这使得C语言不具有可移植性，而Java则具有跨平台性。</p>
+</li>
+<li><p>类型转换不同。</p>
+</li>
+<li><p>结构和联合的处理。</p>
+</li>
+<li><p>Java不再使用指针。</p>
+</li>
+<li><p>避免平台依赖。 </p>
+</li>
+<li><p>在B/S开发方面Java要远远优于C++。</p>
+<h2 id="三、面向对象的理解"><a href="#三、面向对象的理解" class="headerlink" title="三、面向对象的理解"></a>三、面向对象的理解</h2><p>面向对象是一种程序的设计方法，或者说它是一种程序设计范型，其基本思想是使用对象，类，继承，封装，消息等基本概念来进行程序设计。<br>它是从现实世界中客观存在的事务(即对象)出发来构造软件系统，并在系统构造中尽可能运用人类的自然思维方式，强调直接以问题域(现实世界)中的事务为中心来思考问题，认识问题，并根据这些事务的本质特点，把它们抽象地表示为系统中的对象，作为系统的基本构成单位。这可以使系统更直接的映射问题域，保持问题域中事务及其相互关系的本来面貌。<br>见过有人从不同层次解读：</p>
+</li>
+<li><p>从世界观的角度可以认为：面向对象的基本哲学是认为世界是有各种各样具有自己的运动规律和内部状态的对象所组成的；不同对象之间的相互作用和通讯构成了完整的现实世界。因此，人们应当按照现实世界这个本来面貌来理解世界，直接通过对象及其相互关系来反映世界。这样建立起来的系统才能符合现实世界的本来面目。</p>
+</li>
+<li><p>从方法学的角度可以认为：面向对象的方法时面向对象的世界观在开发方法中的直接运用。它强调系统的结构应该直接与现实世界的结构相对应，应该围绕现实世界中的对象来构造系统，而不是围绕功能来构造系统。</p>
+</li>
+<li><p>从程序设计角度来看：面向对象的程序设计语言必须有描述对象及其相互之间关系的语言成分。这些程序设计语言可以归纳为以下几类：系统中一切皆为对象；对象是属性及其操作的封装体；对象可按其性质划分为类，对象成为类的实例；实例关系和继承关系时对象之间的静态关系；消息传递对对象之间动态联系的唯一形式，也是计算的唯一形式；方法是消息的序列。</p>
+</li>
+</ul>
+<p>面向对象的编程语言有封装、继承、抽象、多态4个主要特征。</p>
+<ol>
+<li>封装<br>封装是保证软件部件具有优良的模块性的基础，封装的目标就是要实现软件部件的“高内聚、低耦合”，防止程序相互依赖性而带来的变动影响。在面向对象的编程语言中，对象是封装的最基本单位，面向对象的封装比传统语言的封装更为清晰、更为有利。面向对象的封装就是把描述一个对象的属性和行为的代码封装在一个“模块”中。也就是一个类中，属性用变量定义，行为用方法进行定义，方法可以直接访问同一个对象的属性。通常情况下，只要记住让变量和访问这个变量的方法放在一起，将一个类中的成员变量全部定义为私有的，只有这个类自己的方法才可以访问这些成员变量，这就基本上实现对象的封装，很容易找出要分配到这个类里面的方法了。即把握一个原则：把对同一事物进行操作的方法和相关的方法放在同一个类中，把方法和它操作的数据放在同一个类中。<br>举例说明：司机，火车，刹车。刹车是个动作，很明显塔应该分配给火车，而司机并不是直接能够实现刹车的，司机刹车的过程只是给火车发了一个消息指令，通知火车要执行刹车动作而已，具体怎么实现刹车的机械内部原理自己就无需了解。</li>
+<li>继承<br>在定义和实现一个类的时候，可以在一个已经存在的类的基础上来进行，把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适应特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一种关系，提高了软件的可重用性和可扩展性。</li>
+<li>抽象<br>抽象就是找出一些事物的相似和共性支出，然后将这些事物归为一个类，这个类只考虑这些事物的相似和共性之处，并且会忽略与当前主题和目标无关的那个方面，将注意力集中在与当前目标有关的方面。这个其实好理解，就是分类和定义。抽象包括行为抽象和状态抽象两个方面。<br>举例说明：定义一个Person类，如下：<br>class Person{<br>String name;<br>int age;<br>}<br>人本来是很复杂的事物，有很多属性和行为，但当前目标只需要研究使用到人的姓名和年龄，所以上面的定义已经足够特定的系统使用，这就是一种抽象，使用抽象避免考虑一些与目标无关的细节。当前系统需要什么，就只考虑什么。<br>在实际开发中其实开始定义一个对象时确实做不到该定义哪些不该定义哪些属性和行为，但基础的轮廓可以先假起来，在设计和开发过程中会自然的明白系统需要到对象的哪些内容，这时做好扩展会进一步加深对抽象的理解，有经验后再设计系统就得心应手了。</li>
+<li>多态<br>多态是指程序中定义的引用变量所指向的具体类型和通过引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量到底回指向哪个类中实现的方法，必须在程序运行期间才能决定。因为在程序运行时才确定具体的类，这样不用修改源程序代码就可以让引用变量绑定到不同的类实现上，从而导致该引用调用的具体方法随之改变，即不用修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态。多态性增强了软件的灵活性和扩展性。</li>
+</ol>
+<h2 id="四、Java的数据类型"><a href="#四、Java的数据类型" class="headerlink" title="四、Java的数据类型"></a>四、Java的数据类型</h2><p><strong>基本数据类型有8种</strong></p>
+<p> <strong>整型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字符</th>
+<th>字节</th>
+<th>数值范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>1B</td>
+<td>8位</td>
+<td>-128到127</td>
+</tr>
+<tr>
+<td>short</td>
+<td>2B</td>
+<td>16位</td>
+<td>-2^15 到 2^15-1</td>
+</tr>
+<tr>
+<td>int</td>
+<td>4B</td>
+<td>32位</td>
+<td>-2^31 到2^15-1</td>
+</tr>
+<tr>
+<td>long</td>
+<td>8B</td>
+<td>64位</td>
+<td>-2^63 到2^63-1</td>
+</tr>
+</tbody></table>
+<p> <strong>浮点类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字符</th>
+<th>数值精度范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>float</td>
+<td>4B</td>
+<td>32位</td>
+</tr>
+<tr>
+<td>double</td>
+<td>8B</td>
+<td>64位</td>
+</tr>
+</tbody></table>
+<p><strong>字符类型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字符</th>
+<th>字节</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>2B</td>
+<td>16位</td>
+</tr>
+</tbody></table>
+<p><strong>布尔型</strong></p>
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>字符</th>
+<th>值域范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean</td>
+<td>1B</td>
+<td>false/true</td>
+</tr>
+</tbody></table>
+<p><strong>注：</strong><br><strong>引用数据类型(Reference Type)</strong><br>类、接口、数组、字符串</p>
+<h2 id="五、标识符"><a href="#五、标识符" class="headerlink" title="五、标识符"></a>五、标识符</h2><p>标识符可以用来表示变量名、类名、类中的方法名称和文件名等。<br>命名规则：</p>
+<ol>
+<li><p>由字符、数字、下划线、$组成，不能以数字开头。</p>
+</li>
+<li><p>大小写敏感。</p>
+</li>
+<li><p>不得使用Java中关键字和保留字。</p>
+<p>关键字：都是小写的，true,false,null严格来说不算关键字，称其为保留字更合适。<br>命名习惯：<br>标识符要符合语义信息<br>包名所有字母小写<br>类名每个单词首字符大写，其他小写<br>变量和方法：第一个单词小写，从第二个单词开始首字母大写<br>常量：所有字符大写，每个单词之间用“_”连接</p>
+</li>
+</ol>
+<h2 id="六、Java关键字"><a href="#六、Java关键字" class="headerlink" title="六、Java关键字"></a>六、Java关键字</h2><p>Java关键字不能用于常量、变量和任何标识符的名称，以应用场景分类列出一下Java常见关键字：<br>访问控制<br>private    protected    public</p>
+<p>类，方法和变量修饰符<br>abstract    class    extends    final    implements    interface    native    new<br>static    strictfp    synchronized    transient    volatile</p>
+<p>程序控制<br>break    continue    return    do    while    if    else    for    instanceof    switch case    default</p>
+<p>异常处理<br>try    cathc    throw    throws</p>
+<p>包相关<br>import    package</p>
+<p>基本类型<br>boolean    byte    char    double    float    int    long    short    null    true    false</p>
+<p>变量引用<br>super    this    void</p>
+<p>保留字<br>goto    const  </p>
+<h2 id="七、Java注释"><a href="#七、Java注释" class="headerlink" title="七、Java注释"></a>七、Java注释</h2><p>程序注释是给人看的，不是给计算机看的。Java中公有3中类型的注释：</p>
+<p>// 单行注释，到本行结束的所有字符都会被编辑器忽略；<br>/* */多行注释，在/*  */之间的所有字符会被编译器忽略；<br>/** */文档注释，Java特有的，在/** */之间的所有字符会被编译器忽略，可以用javadoc把Java源程序中这种注释抽取出来形成html页面（只有写在包、类、属性、方法、构造器、引用之前的注释才可以进行抽取）。</p>
+<h2 id="八、Java运算符"><a href="#八、Java运算符" class="headerlink" title="八、Java运算符"></a>八、Java运算符</h2><p><strong>算术运算符</strong></p>
+<p>单目运算符：+(取正) -(取负) ++(自增1) –(自减1)<br>双目运算符：+ - * / %(取余)<br>三目运算符：a&gt;b?true:false</p>
+<p><strong>关系运算符</strong></p>
+<p>==<br>!=  </p>
+<blockquote>
+</blockquote>
+<p>&lt;<br>&gt;=<br>&lt;=<br><strong>逻辑运算符</strong></p>
+<p>或(||)<br>与(&amp;&amp;)<br>非(!)  </p>
+<p><strong>赋值运算符</strong></p>
+<p> =<br>%=<br>&amp;=<br>|=<br>^=<br>&lt;&lt;=(左移位)<br>&gt;&gt;=(右移位)  </p>
+<p><strong>位运算符</strong></p>
+<p>与(&amp;)、非(~)、或(|)、异或(^)<br>异或解释：两边的位不同时结果为1，否则为0. 如1100^1010=0110</p>
+<p><strong>instanceof运算符</strong></p>
+<p>该运算符是个双目运算符，左边的操作元是一个对象，右边的操作元是一个类。当左边的对象是右面的类创建的对象时，该运算符返回结果true，否则返回false.</p>
+<h2 id="九、局部变量，实例变量，静态变量"><a href="#九、局部变量，实例变量，静态变量" class="headerlink" title="九、局部变量，实例变量，静态变量"></a>九、局部变量，实例变量，静态变量</h2><p>局部变量：不是声明在类体括号里面的变量。</p>
+<p>1：必须要先赋值后使用，否则不能通过编译，局部变量没有默认初始化值；<br>2：作用范围:从定义开始到定义它的代码块结束；<br>3：同一范围内，不允许2个局部变量命名冲突。</p>
+<p><strong>静态变量和实例变量的区别？</strong><br>语法定义上的区别：静态变量前面要加static关键字，而实例变量前不加；</p>
+<p>程序运行时的区别：实例变量属于某个对象的属性，必须创建了实例对象，其中的实例变量才会被分配空间，才能使用这个实例变量。静态变量不属于某个实例对象，而是属于类，所以也称类变量，只要程序加载了类的字节码，不同创建任何实例对象，静态变量就会被分配空间，可通过类名直接引用。</p>
+<p>类的静态变量在内存中只有一个，java虚拟机在加载类的过程中为静态变量分配内存，静态变量位于方法区，被类的所有实例共享。静态变量生命周期取决于类的生命周期；而实例变量取决于类的实例，没创建一个实例java虚拟机就会为实例变量分配一次内存，实例变量位于堆区中，其生命周期取决于实例的生命周期。</p>
+<h2 id="十、数组"><a href="#十、数组" class="headerlink" title="十、数组"></a>十、数组</h2><p>数组是有序数据的集合，数组中每个元素具有相同的数组名和下标来唯一的确定数组中的元素。</p>
+<p><strong>声明数组：</strong><br>形式如下：<br>类型[] array;<br>类型 array[];<br>建议使用第一种方式。</p>
+<p><strong>创建数组：</strong><br>创建基本数据类型数组：int[] i = new int[2];<br>创建引用数据类型数组：Student[] s = new Student[10];<br>数组创建后其中的元素有初始值，引用类型的初始值为null。</p>
+<p><strong>初始化数组：</strong><br>初始化即为数组元素赋值，如下：<br>int[] i; //定义数组<br>i = new int[2]; //分配空间<br>i[0] = 1; //初始化<br>i[1] = 2;  </p>
+<p><strong>数组拷贝：</strong><br>系统类System提供了数组拷贝的方法：<br>static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)<br>src:源数组<br>srcPos:从源数组的哪个位置(下标)开始拷贝<br>dest:目标数组<br>destPos:拷贝的元素在目标数组的哪个位置(下标)开始放置<br>length:拷贝数据长度  </p>
+<p><strong>数组排序：</strong><br>可调用java.util.Arrays.sort(Object o)，也可以自己实现数组排序方法。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Weikui Wang 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Weikui Wang 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/JAVA/" rel="tag"><i class="fa fa-tag"></i> JAVA</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/03/10/Redis%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="prev" title="Redis数据库">
+                  <i class="fa fa-chevron-left"></i> Redis数据库
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2018/02/22/Java%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/" rel="next" title="Java常见问题记录">
+                  Java常见问题记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weikui Wang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
